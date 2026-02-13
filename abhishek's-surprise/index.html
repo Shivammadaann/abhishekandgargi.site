@@ -122,11 +122,6 @@
             }
         }
         
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 4px 14px rgba(255, 0, 0, 0.25); }
-            50% { box-shadow: 0 8px 24px rgba(255, 0, 0, 0.4); }
-        }
-        
         /* ============ DESKTOP LAYOUT (DEFAULT) ============ */
         
         /* Header - Desktop with animation */
@@ -190,7 +185,7 @@
             background: var(--yt-dark-red);
         }
         
-        /* Desktop Search with animations */
+        /* Desktop Search */
         .search-container {
             display: flex;
             align-items: center;
@@ -274,7 +269,7 @@
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
         }
         
-        /* Sidebar - Desktop with animations */
+        /* Sidebar - Desktop */
         aside {
             position: fixed;
             top: 64px;
@@ -360,7 +355,7 @@
             animation: fadeInLeft 0.8s ease;
         }
         
-        /* Video Player - Desktop with animations */
+        /* Video Player - Desktop */
         .main-player {
             position: relative;
             width: 100%;
@@ -468,6 +463,7 @@
             text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
         
+        /* See More Button - Desktop */
         .see-more-btn {
             position: absolute;
             top: 16px;
@@ -503,6 +499,32 @@
             transform: rotate(20deg) scale(1.1);
         }
         
+        /* Info Icon Button - Mobile Only */
+        .info-icon-btn {
+            display: none;
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: var(--yt-red);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: var(--transition-bounce);
+        }
+        
+        .info-icon-btn:hover {
+            transform: scale(1.1);
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
         .video-info {
             position: absolute;
             top: 16px;
@@ -532,7 +554,7 @@
             color: var(--yt-red);
         }
         
-        /* Video Info Row - Desktop with animations */
+        /* Video Info Row - Desktop */
         .video-info-row {
             display: flex;
             align-items: center;
@@ -691,7 +713,7 @@
             color: var(--yt-red);
         }
         
-        /* Description Box - Desktop with animations */
+        /* Description Box - Desktop */
         .description-box {
             background: white;
             border-radius: 16px;
@@ -762,7 +784,7 @@
             transition: var(--transition-base);
         }
         
-        /* Recommendation Column - Desktop - FIXED AND VISIBLE */
+        /* Recommendation Column - Desktop */
         .recommendation-column.desktop-rec {
             width: 400px;
             flex-shrink: 0;
@@ -870,7 +892,7 @@
             transition: var(--transition-base);
         }
         
-        /* Shorts Section - Desktop with animations */
+        /* Shorts Section - Desktop */
         .shorts-section {
             margin-top: 32px;
             padding-top: 24px;
@@ -932,6 +954,129 @@
             color: var(--yt-red);
         }
         
+        /* Short Video Modal */
+        .short-video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 5000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-base);
+            backdrop-filter: blur(20px);
+        }
+        
+        .short-video-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .short-video-container {
+            width: 100%;
+            max-width: 400px;
+            height: 80vh;
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transform: scale(0.9);
+            transition: var(--transition-bounce);
+        }
+        
+        .short-video-modal.active .short-video-container {
+            transform: scale(1);
+        }
+        
+        .short-video-player {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: #000;
+        }
+        
+        .short-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            transition: var(--transition-bounce);
+            z-index: 10;
+        }
+        
+        .short-close-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: rotate(90deg) scale(1.1);
+        }
+        
+        .short-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            color: white;
+        }
+        
+        .short-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .short-description {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 16px;
+        }
+        
+        .short-actions {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .short-action-btn {
+            background: none;
+            border: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+        
+        .short-action-btn:hover {
+            transform: scale(1.1);
+            color: var(--yt-red);
+        }
+        
+        .short-action-btn i {
+            font-size: 28px;
+        }
+        
+        .short-action-btn span {
+            font-size: 12px;
+        }
+        
         /* Hide Mobile Elements on Desktop */
         .mobile-menu-btn,
         .mobile-search-btn,
@@ -953,7 +1098,8 @@
             .nav-left i:first-child,
             .search-container,
             .nav-right .avatar,
-            .recommendation-column.desktop-rec {
+            .recommendation-column.desktop-rec,
+            .see-more-btn {
                 display: none !important;
             }
             
@@ -961,11 +1107,13 @@
             .mobile-menu-btn,
             .mobile-search-btn,
             .mobile-avatar,
-            .mobile-bottom-nav {
+            .mobile-bottom-nav,
+            .info-icon-btn,
+            .recommendation-column.mobile-rec {
                 display: flex !important;
             }
             
-            /* Mobile Header with animations */
+            /* Mobile Header */
             nav {
                 padding: 0 16px;
                 height: 56px;
@@ -1093,11 +1241,29 @@
                 height: 40px;
             }
             
-            .see-more-btn {
+            /* Info Icon Button - Mobile */
+            .info-icon-btn {
+                position: absolute;
                 top: 12px;
                 right: 12px;
-                padding: 8px 16px;
-                font-size: 12px;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: rgba(255,255,255,0.9);
+                border: none;
+                color: var(--yt-red);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 10;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+                transition: var(--transition-bounce);
+            }
+            
+            .info-icon-btn:active {
+                transform: scale(0.95);
+                background: white;
             }
             
             .video-info h2 {
@@ -1221,7 +1387,25 @@
                 font-size: 14px;
             }
             
-            /* Mobile Bottom Navigation with animations */
+            /* Mobile Short Video Modal */
+            .short-video-container {
+                max-width: 100%;
+                height: 100%;
+                border-radius: 0;
+            }
+            
+            .short-close-btn {
+                top: 16px;
+                right: 16px;
+                width: 44px;
+                height: 44px;
+            }
+            
+            .short-title {
+                font-size: 18px;
+            }
+            
+            /* Mobile Bottom Navigation */
             .mobile-bottom-nav {
                 position: fixed;
                 bottom: 0;
@@ -1272,7 +1456,7 @@
                 display: none;
             }
             
-            /* Mobile Search Overlay with animations */
+            /* Mobile Search Overlay */
             .mobile-search-overlay {
                 position: fixed;
                 top: 0;
@@ -1372,7 +1556,7 @@
                 transform: scale(0.98);
             }
             
-            /* Mobile Side Menu with animations */
+            /* Mobile Side Menu */
             .mobile-side-menu {
                 position: fixed;
                 top: 0;
@@ -1495,7 +1679,7 @@
             }
         }
         
-        /* ============ MEMORY MODAL - OPTIMIZED WITH ANIMATIONS ============ */
+        /* ============ MEMORY MODAL - WITH ESC KEY SUPPORT ============ */
         .memory-modal {
             position: fixed;
             top: 0;
@@ -1771,6 +1955,34 @@
             90% { opacity: 0.3; }
             100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
         }
+        .short-poster {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border: none;
+}
+
+.short-poster span {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition-base);
+}
+
+.short-poster:hover span {
+    background: var(--yt-red);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-red);
+}
     </style>
 </head>
 <body>
@@ -1935,8 +2147,14 @@
             <div class="video-column">
                 <!-- VIDEO PLAYER -->
                 <div class="main-player">
+                    <!-- Desktop "See More" Button -->
                     <button class="see-more-btn" id="seeMoreBtn">
                         <i data-lucide="play-circle"></i> Click here to see more like this
+                    </button>
+                    
+                    <!-- Mobile "Info" Icon Button -->
+                    <button class="info-icon-btn" id="infoIconBtn">
+                        <i data-lucide="info"></i>
                     </button>
                     
                     <div class="video-info" id="videoInfo">
@@ -2071,24 +2289,30 @@ Your Guchhu 💌
                     </div>
                 </div>
 
-                <!-- SHORTS SECTION -->
+                <!-- SHORTS SECTION - WORKING IN BOTH DESKTOP AND MOBILE -->
                 <div class="shorts-section">
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
                         <i data-lucide="zap" color="#ff0000"></i>
                         <h3 style="font-size: 20px; font-weight: 600;">Shorts</h3>
                     </div>
                     <div class="shorts-grid">
-                        <div class="short-poster">Diwali ✨</div>
-                        <div class="short-poster">Holi 🎨</div>
-                        <div class="short-poster">Birthday 🎂</div>
-                        <div class="short-poster">Anniversary 💝</div>
-                        <div class="short-poster">Vacation 🌴</div>
-                        <div class="short-poster">Date Night 🌙</div>
+                        <div class="short-poster" data-short="diwali" style="background-image: url('../assets/shorts/short1thumbnail.jpeg'); background-size: cover; background-position: center;">
+                            <span style="background: rgba(0,0,0,0.5); color: white; padding: 8px 16px; border-radius: 20px;">In the Little Moments 🤍 ✨</span>
+                        </div>
+                        <div class="short-poster" data-short="holi" style="background-image: url('../assets/shorts/short2thumbnail.jpeg'); background-size: cover; background-position: center;">
+                            <span style="background: rgba(0,0,0,0.5); color: white; padding: 8px 16px; border-radius: 20px;">Just Us Being Us ✨</span>
+                        </div>
+                        <div class="short-poster" data-short="birthday" style="background-image: url('../assets/shorts/short3thumbnail.jpeg'); background-size: cover; background-position: center;">
+                            <span style="background: rgba(0,0,0,0.5); color: white; padding: 8px 16px; border-radius: 20px;">Random… but Everything ✨</span>
+                        </div>
+                        <div class="short-poster" data-short="anniversary" style="background-image: url('../assets/shorts/short4thumbnail.jpeg'); background-size: cover; background-position: center;">
+                            <span style="background: rgba(0,0,0,0.5); color: white; padding: 8px 16px; border-radius: 20px;">The In-Between Moments 🌙</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- DESKTOP RECOMMENDATIONS - FIXED: NOW VISIBLE ON DESKTOP -->
+            <!-- DESKTOP RECOMMENDATIONS - MOVED TO CORRECT POSITION (RIGHT SIDEBAR) -->
             <div class="recommendation-column desktop-rec">
                 <h3>Featured Playlist - Our Journey</h3>
                 
@@ -2152,6 +2376,36 @@ Your Guchhu 💌
                             <i data-lucide="calendar"></i>
                             <span id="memoryDate">7th March 2024</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHORT VIDEO MODAL - WORKING IN BOTH DESKTOP AND MOBILE -->
+        <div class="short-video-modal" id="shortVideoModal">
+            <div class="short-video-container">
+                <button class="short-close-btn" id="shortCloseBtn">
+                    <i data-lucide="x"></i>
+                </button>
+                <video class="short-video-player" id="shortVideoPlayer" loop playsinline>
+                    Your browser does not support the video tag.
+                </video>
+                <div class="short-info">
+                    <h3 class="short-title" id="shortTitle">Diwali Celebration</h3>
+                    <p class="short-description" id="shortDescription">Our first Diwali together ✨</p>
+                    <div class="short-actions">
+                        <button class="short-action-btn" onclick="likeShort()">
+                            <i data-lucide="heart"></i>
+                            <span>Like</span>
+                        </button>
+                        <button class="short-action-btn" onclick="commentShort()">
+                            <i data-lucide="message-circle"></i>
+                            <span>Comment</span>
+                        </button>
+                        <button class="short-action-btn" onclick="shareShort()">
+                            <i data-lucide="share-2"></i>
+                            <span>Share</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -2225,6 +2479,7 @@ Your Guchhu 💌
                 this.uploadDate = document.getElementById('uploadDate');
                 this.loveLetter = document.getElementById('loveLetter');
                 this.seeMoreBtn = document.getElementById('seeMoreBtn');
+                this.infoIconBtn = document.getElementById('infoIconBtn');
                 
                 this.isPlaying = false;
                 this.isMuted = false;
@@ -2246,6 +2501,14 @@ Your Guchhu 💌
                 this.playPauseBtn.addEventListener('click', () => this.togglePlay());
                 this.muteBtn.addEventListener('click', () => this.toggleMute());
                 this.progressContainer.addEventListener('click', (e) => this.seek(e));
+                
+                if (this.seeMoreBtn) {
+                    this.seeMoreBtn.addEventListener('click', () => this.showEndscreen());
+                }
+                
+                if (this.infoIconBtn) {
+                    this.infoIconBtn.addEventListener('click', () => this.showEndscreen());
+                }
                 
                 this.updatePlayIcon();
                 this.updateVolumeIcon();
@@ -2309,6 +2572,11 @@ Your Guchhu 💌
                 this.updatePlayIcon();
             }
             
+            showEndscreen() {
+                // This would show the endscreen overlay
+                console.log('Show more videos');
+            }
+            
             loadVideoFromBackend(url) {
                 this.video.src = url;
                 this.video.load();
@@ -2320,6 +2588,108 @@ Your Guchhu 💌
                 this.viewCount.textContent = this.viewCountNumber + ' views';
             }
         }
+
+        // Short Videos Functionality
+        function initShortVideos() {
+            const shortItems = document.querySelectorAll('.short-poster');
+            const shortModal = document.getElementById('shortVideoModal');
+            const shortPlayer = document.getElementById('shortVideoPlayer');
+            const shortTitle = document.getElementById('shortTitle');
+            const shortDescription = document.getElementById('shortDescription');
+            const shortCloseBtn = document.getElementById('shortCloseBtn');
+            
+            // Short video data - YOU CAN UPLOAD YOUR MP4 FILES HERE
+            const shortVideos = {
+                diwali: {
+                    src: '../assets/shorts/short1.mp4', // Replace with your video path
+                    poster: '../assets/newhome/1.jpeg', // Optional
+                    title: 'In the Little Moments 🤍',
+                    description: 'Not a big trip. Not a special occasion. Just us… laughing at nothing and loving everything. ❤️'
+                },
+                holi: {
+                    src: '../assets/shorts/short2.mp4', // Replace with your video path
+                    title: 'Just Us Being Us ✨',
+                    description: 'No filters. No plans. No perfect timing. Just two souls finding magic in the most random seconds of life. And somehow… those seconds mean the most. 🤍'
+                },
+                birthday: {
+                    src: '../assets/shorts/short3.mp4', // Replace with your video path
+                    title: 'Random… but Everything ✨',
+                    description: 'It wasn’t planned. It wasn’t grand. It was just a normal day. But with you, even the ordinary feels like a memory I never want to lose. 🤍'
+                },
+                anniversary: {
+                    src: '../assets/shorts/short4.mp4', // Replace with your video path
+                    title: 'The In-Between Moments 🌙',
+                    description: 'Not the big milestones. Not the picture-perfect scenes. Just the quiet laughs, the small glances, the “nothing” moments — that somehow mean everything to me. 🤍✨'
+                }
+            };
+            
+            function openShortVideo(shortKey) {
+                const short = shortVideos[shortKey];
+                if (!short) return;
+                
+                shortPlayer.src = short.src;
+                shortTitle.textContent = short.title;
+                shortDescription.textContent = short.description;
+                
+                shortModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Auto-play the video
+                shortPlayer.play().catch(e => console.log('Autoplay prevented:', e));
+            }
+            
+            function closeShortVideo() {
+                shortModal.classList.remove('active');
+                shortPlayer.pause();
+                shortPlayer.currentTime = 0;
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Add click listeners to short posters
+            shortItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const shortKey = this.getAttribute('data-short');
+                    openShortVideo(shortKey);
+                });
+            });
+            
+            // Close button
+            if (shortCloseBtn) {
+                shortCloseBtn.addEventListener('click', closeShortVideo);
+            }
+            
+            // Close when clicking outside
+            shortModal.addEventListener('click', function(e) {
+                if (e.target === shortModal) {
+                    closeShortVideo();
+                }
+            });
+            
+            // ESC key to close short modal
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (shortModal.classList.contains('active')) {
+                        closeShortVideo();
+                    }
+                }
+            });
+            
+            // Expose close function globally
+            window.closeShortVideo = closeShortVideo;
+        }
+        
+        // Short action functions
+        window.likeShort = function() {
+            alert('You liked this short! ❤️');
+        };
+        
+        window.commentShort = function() {
+            alert('Comments coming soon! 💬');
+        };
+        
+        window.shareShort = function() {
+            alert('Share this special moment! 📤');
+        };
 
         // Mobile UI
         function initMobileUI() {
@@ -2373,17 +2743,18 @@ Your Guchhu 💌
                 });
             });
             
-            // Escape key
+            // Escape key for all modals
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     if (searchOverlay) searchOverlay.classList.remove('active');
                     closeMenu();
+                    closeMemoryModal();
                     document.body.style.overflow = 'auto';
                 }
             });
         }
 
-        // Memory Modal
+        // Memory Modal with ESC support
         function initMemoryModal() {
             const modal = document.getElementById('memoryModal');
             const closeBtn = document.getElementById('closeModal');
@@ -2395,10 +2766,10 @@ Your Guchhu 💌
                     date: '7th March 2024',
                     description: 'The first time I saw him, I genuinely thought — this man has no flaws. He felt impossibly perfect. Calm. Composed. Whole. I remember thinking — How would someone like him ever fall in love with someone as flawed as me? But life had its own plans. Somewhere between nervous conversations and stolen glances, something began. Not loud. Not dramatic. Just steady. Safe. I fell in love because when I was at my most open… my most vulnerable… when I showed him parts of myself I usually hide — He didn\'t flinch. Not even once. He stayed. He listened. He held space for me. That\'s when I knew. This wasn\'t perfection. This was home. ❤️',
                     images: [
-                        'https://images.unsplash.com/photo-1519741497674-611481863552?w=800',
-                        'https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?w=800',
-                        'https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=800',
-                        'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800'
+                        "../assets/engagement/1.jpeg",
+                        "../assets/engagement/2.jpeg",
+                        "../assets/engagement/3.jpeg",                        
+                        "../assets/engagement/4.jpeg",    
                     ]
                 },
                 wedding: {
@@ -2438,7 +2809,7 @@ Your Guchhu 💌
                 }
             };
             
-            function openMemory(key) {
+            window.openMemory = function(key) {
                 const memory = memories[key];
                 if (!memory) return;
                 
@@ -2460,35 +2831,28 @@ Your Guchhu 💌
                 
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
-            }
+            };
             
-            function closeModal() {
+            window.closeMemoryModal = function() {
                 modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
-            }
+            };
             
             // Add click listeners
             document.querySelectorAll('.rec-item').forEach(item => {
                 item.addEventListener('click', function() {
                     const memory = this.getAttribute('data-memory');
-                    openMemory(memory);
-                });
-            });
-            
-            document.querySelectorAll('.endscreen-item').forEach(item => {
-                item.addEventListener('click', function() {
-                    const memory = this.getAttribute('data-memory');
-                    openMemory(memory);
+                    window.openMemory(memory);
                 });
             });
             
             if (closeBtn) {
-                closeBtn.addEventListener('click', closeModal);
+                closeBtn.addEventListener('click', window.closeMemoryModal);
             }
             
             modal.addEventListener('click', function(e) {
                 if (e.target === modal) {
-                    closeModal();
+                    window.closeMemoryModal();
                 }
             });
         }
@@ -2549,6 +2913,10 @@ Your Guchhu 💌
             createFloatingHearts();
             initMobileUI();
             initMemoryModal();
+            initShortVideos();
+            
+            // Reinitialize Lucide icons
+            lucide.createIcons();
         });
     </script>
 </body>
