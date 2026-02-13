@@ -1,0 +1,8 @@
+Custom HomePage with a Message, Custom Ghibli Art Picture and a Password Popup.
+Custom Loading Page once correct password is entered
+Once the YouTube UI Loads, Custom Video Starts Playing with Gargi & Abhishek's Favourate Song in the Background.
+A Custom Typed Appreciation Message in the Video Description.
+When Clicked on Like Button, a Popup Comes Saying Gargi Send you a Hug.
+A Custom Playlist of Gargi and Abhishek's Journey divided in Chapters.
+When clicked on Each Chapter, a Custom Message pops up with Pictures of that specific day / memory
+A Shorts Section with Random Moments of Gargi and Abhishek!
